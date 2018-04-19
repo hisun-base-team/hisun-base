@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!-- ========基础设置======== -->
+  <modelVersion>4.0.0</modelVersion><!--必须,指定当前POM模型的版本,对于MAVEN2/3来说它只能4.0.0-->
+  <organization><!--可选，组织信息-->
+    <name>Hunan Hisun Union Information Technology Co, Ltd.</name>
+    <url>http://www.hn-hisun.com/</url>
+  </organization>
+  <groupId>com.hn-hisun</groupId><!--必须,组织名称.groupId,artifactId,version三个元素定义了一个项目的基本坐标(唯一)-->
+  <artifactId>hisun-base</artifactId><!--必须,工件名称-->
+  <version>1.0</version><!--必须,工件版本号-->
+  <packaging>jar</packaging><!--可选,默认为jar包-->
+  <name>hisun-base</name><!--可选,项目名称(一个相对于坐标更友好的名称)-->
+
+  <parent>
+    <groupId>com.hn-hisun</groupId>
+    <artifactId>hisun-pom</artifactId>
+    <version>1.0</version>
+    <relativePath>../hisun-base/pom.xml</relativePath>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>hisun-commons</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+
+  <!-- 生命周期及插件配置-->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>${maven-install-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
