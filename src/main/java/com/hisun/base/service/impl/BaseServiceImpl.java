@@ -7,19 +7,17 @@
 package com.hisun.base.service.impl;
 
 
-import com.hisun.base.dao.util.OrderBy;
-import com.hisun.base.service.BaseService;
-import com.hisun.base.dao.util.CommonConditionQuery;
 import com.hisun.base.dao.BaseDao;
 import com.hisun.base.dao.impl.BaseDaoImpl;
+import com.hisun.base.dao.util.CommonConditionQuery;
 import com.hisun.base.dao.util.CommonOrderBy;
 import com.hisun.base.dao.util.ConditionQuery;
-import com.hisun.base.auth.AbstractUserLoginDetails;
+import com.hisun.base.dao.util.OrderBy;
 import com.hisun.base.entity.TombstoneEntity;
+import com.hisun.base.service.BaseService;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -205,30 +203,6 @@ implements BaseService<E, PK> {
 				this.update(e);
 			}
 		}
-	}
-
-	protected void setCreateUser(AbstractUserLoginDetails details, Object obj){
-		try {
-			org.apache.commons.beanutils.BeanUtils.setProperty(obj,"createUserId",details.getUserid());
-			org.apache.commons.beanutils.BeanUtils.setProperty(obj,"createUserName",details.getRealname());
-			org.apache.commons.beanutils.BeanUtils.setProperty(obj,"createDate",new Date());
-		} catch (Exception e) {
-			//不用抓错，这里用在测试阶段一定要正确
-			logger.error(e,e);
-		}
-
-	}
-
-	protected void setUpdateUser(AbstractUserLoginDetails details, Object obj){
-		try {
-			org.apache.commons.beanutils.BeanUtils.setProperty(obj,"updateUserId",details.getUserid());
-			org.apache.commons.beanutils.BeanUtils.setProperty(obj,"updateUserName",details.getRealname());
-			org.apache.commons.beanutils.BeanUtils.setProperty(obj,"updateDate",new Date());
-		} catch (Exception e) {
-			//不用抓错，这里用在测试阶段一定要正确
-			logger.error(e,e);
-		}
-
 	}
 	
 }
