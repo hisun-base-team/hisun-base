@@ -169,7 +169,7 @@ implements BaseService<E, PK> {
 	public int update(E entity, String[] columnNames) {
 		return this.baseDao.update(entity, columnNames);
 	}
-    
+
 	public <T> List<T> list(String hql, List<Object> paramList, int pageNum,
 			int pageSize) {
 		return this.baseDao.list(hql, paramList, pageNum, pageSize);
