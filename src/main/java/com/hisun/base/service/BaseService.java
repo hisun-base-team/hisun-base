@@ -63,12 +63,5 @@ public interface BaseService <E extends java.io.Serializable, PK extends java.io
      void addTombstonePK(PK pk);
      void addTombstone(E entity);
      void removeTombstone(E entity);
-    
-    /**
-     * 更新多个字段，目前只支持单主键
-     * @Description
-     * @param entity
-     * @param columnNames
-     */
      int update(E entity, String[] columnNames);
 }
