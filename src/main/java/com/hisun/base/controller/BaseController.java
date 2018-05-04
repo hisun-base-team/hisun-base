@@ -66,10 +66,6 @@ public abstract class BaseController {
 	//5、Void：未指定视图及模型，默认以当前请求视图或路径作为视图名。
 	//有@ResponseBody，返回值将放置在BODY区。
 	protected final Logger logger = Logger.getLogger(getClass());
-
-	/**
-	 * 默认的分页大小
-	 */
 	protected final int DEFAULT_PAGE_SIZE = 10;
 
 	@InitBinder

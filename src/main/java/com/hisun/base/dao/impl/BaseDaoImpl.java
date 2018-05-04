@@ -470,8 +470,7 @@ implements BaseDao<E, PK> {
     }
     
     @Override
-	public <T> List<T> nativeList(Class<T> c, String sql,
-			Map<String, Object> paramMap) {
+	public <T> List<T> nativeList(Class<T> c, String sql, Map<String, Object> paramMap) {
 		SQLQuery query = getSession().createSQLQuery(sql);
 		query.addEntity(c);
 		query.setProperties(paramMap);
@@ -479,8 +478,7 @@ implements BaseDao<E, PK> {
 	}
     
     @Override
-	public <T> List<T> nativeList(Class<T> c, String sql,
-			Map<String, Object> paramMap, int pageNum, int pageSize) {
+	public <T> List<T> nativeList(Class<T> c, String sql, Map<String, Object> paramMap, int pageNum, int pageSize) {
 		SQLQuery query = getSession().createSQLQuery(sql);
 		query.addEntity(c);
 		query.setProperties(paramMap);
@@ -687,14 +685,8 @@ implements BaseDao<E, PK> {
 		return total.intValue();
 	}
 
-    /**
-     * 请不要在意名字，只是不小心起错了
-     * @param hql
-     * @param paramMap
-     * @return
-     */
 	@Override
-	public List<Map> countReturnMapByHql(String hql, Map<String, Object> paramMap) {
+	public List<Map> list(String hql, Map<String, Object> paramMap) {
 		Query query = getSession().createQuery(hql);
 		query.setProperties(paramMap);
 		query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
@@ -702,14 +694,8 @@ implements BaseDao<E, PK> {
 		return list;
 	}
 
-    /**
-     * 请不要在意名字，只是不小心起错了
-     * @param sql
-     * @param paramMap
-     * @return
-     */
 	@Override
-	public List<Map> countReturnMapBySql(String sql, Map<String, Object> paramMap) {
+	public List<Map> nativeList(String sql, Map<String, Object> paramMap) {
 		Query query = getSession().createSQLQuery(sql);
 		query.setProperties(paramMap);
 		query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
@@ -736,12 +722,6 @@ implements BaseDao<E, PK> {
 		return count.intValue();
 	}
 
-	/**
-	 * @param sql
-	 * @param paramMap
-	 * @return
-	 * @see BaseDao#countBySql(String, Map)
-	 */
 	@Override
 	public int countBySql(String sql, Map<String, Object> paramMap) {
 		Query query = getSession().createSQLQuery(sql);
@@ -750,11 +730,4 @@ implements BaseDao<E, PK> {
 		return number==null?0:number.intValue();
 	}
 
-    /*@Override
-    public List<Map> listReturnMapBySql(String sql, Map<String, Object> paramMap) {
-        Query query = getSession().createQuery(hql);
-        for(int i=0;i<paramList.size();i++){
-            query.setParameter(i, paramList.get(i));
-        }
-    }*/
 }

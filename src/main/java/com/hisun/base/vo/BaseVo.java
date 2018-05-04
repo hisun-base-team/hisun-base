@@ -14,20 +14,20 @@ import java.util.Date;
  */
 public class BaseVo {
 	
-	protected String createUser;
+	protected String createUserId;
 	protected String createUserName;
 	protected Date createDate;
 	protected String createDateStr;
-	protected String updateUser;
+	protected String updateUserId;
 	protected String updateUserName;
 	protected Date updateDate;
 	protected String updateDateStr;
 	
 	public String getCreateUser() {
-		return createUser;
+		return createUserId;
 	}
-	public void setCreateUser(String createUser) {
-		this.createUser = createUser;
+	public void setCreateUser(String createUserId) {
+		this.createUserId = createUserId;
 	}
 	public String getCreateUserName() {
 		return createUserName;
@@ -53,10 +53,10 @@ public class BaseVo {
 		this.createDateStr = createDateStr;
 	}
 	public String getUpdateUser() {
-		return updateUser;
+		return updateUserId;
 	}
-	public void setUpdateUser(String updateUser) {
-		this.updateUser = updateUser;
+	public void setUpdateUser(String updateUserId) {
+		this.updateUserId = updateUserId;
 	}
 	public String getUpdateUserName() {
 		return updateUserName;

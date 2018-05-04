@@ -58,6 +58,7 @@ public interface BaseDao<E extends java.io.Serializable, PK extends java.io.Seri
      <T> T count(CommonConditionQuery query, boolean cacheable);
      <T> T count(String hql, CommonConditionQuery query);
      <T> T countByHql(String hql, CommonConditionQuery query);
+     int countBySql(String sql, Map<String, Object> paramMap);
      <T> T count(String hql, CommonConditionQuery query, boolean cacheable);
      List<E> list(CommonConditionQuery query, CommonOrderBy orderBy);
      List<E> list(CommonConditionQuery query, CommonOrderBy orderBy, boolean cacheable);
@@ -99,8 +100,8 @@ public interface BaseDao<E extends java.io.Serializable, PK extends java.io.Seri
      int count(List<Criterion> criterionList);
      int update(E entity, String... columnNames);
      int update(String sql, Map<String, Object> paramMap);
-     List<Map> countReturnMapByHql(String hql, Map<String, Object> paramMap);
-     List<Map> countReturnMapBySql(String sql, Map<String, Object> paramMap);
-     int countBySql(String sql, Map<String, Object> paramMap);
+     List<Map> list(String hql, Map<String, Object> paramMap);
+     List<Map> nativeList(String sql, Map<String, Object> paramMap);
+
 
 }

@@ -22,9 +22,7 @@ public class GenericSimpleMappingExceptionResolver extends SimpleMappingExceptio
 	 @Override  
 	 protected ModelAndView doResolveException(HttpServletRequest request,  
 	            HttpServletResponse response, Object handler, Exception ex) {  
-	        // Expose ModelAndView for chosen error view.  
 	        String viewName = determineViewName(ex, request);
-	        //log exception
 	        logException(ex, request);
 	        if (viewName != null) {
 	        	//返回为JSP视图
