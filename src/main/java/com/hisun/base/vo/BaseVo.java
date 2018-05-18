@@ -23,10 +23,10 @@ public class BaseVo {
 	protected Date updateDate;
 	protected String updateDateStr;
 	
-	public String getCreateUser() {
+	public String getCreateUserId() {
 		return createUserId;
 	}
-	public void setCreateUser(String createUserId) {
+	public void setCreateUserId(String createUserId) {
 		this.createUserId = createUserId;
 	}
 	public String getCreateUserName() {
@@ -52,10 +52,10 @@ public class BaseVo {
 	public void setCreateDateStr(String createDateStr) {
 		this.createDateStr = createDateStr;
 	}
-	public String getUpdateUser() {
+	public String getUpdateUserId() {
 		return updateUserId;
 	}
-	public void setUpdateUser(String updateUserId) {
+	public void setUpdateUserId(String updateUserId) {
 		this.updateUserId = updateUserId;
 	}
 	public String getUpdateUserName() {
